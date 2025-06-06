@@ -36,6 +36,6 @@ let titulo = document.getElementById("titulo")
 let button = document.getElementById("button")
 
  button.addEventListener("click", function(){
-    titulo.innerText = "Clique no Botão"
+    titulo.innerText = "Titulo Principal"
     titulo.style.color = "purple"
  })
