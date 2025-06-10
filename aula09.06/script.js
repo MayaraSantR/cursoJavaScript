@@ -45,5 +45,8 @@ fetch("https://jsonplaceholder.typicode.com/users")
     username.innerText = data[0].username
     email.innerText = data[0].username
 })
+.catch((err) => {
+    nome.innerText = "Não foi possivel localizar o nome"
+})
 
 
