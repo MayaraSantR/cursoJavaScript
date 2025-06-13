@@ -1,19 +1,55 @@
-let pokemon_name = document.getElementById("pokemon_name")
-let pokemon_number = document.getElementById("pokemon_number")
-let pokemon_image = document.getElementById("pokemon_image")
+let pokemon_name = document.getElementById("pokemon_name");
+let pokemon_number = document.getElementById("pokemon_number");
+let pokemon_image = document.getElementById("pokemon_image");
 
 
+let buscar = document.getElementById("btn-search")
 
-fetch("https://pokeapi.co/api/v2/pokemon/ditto")
-.then((res) => res.json())
-.then((data) => {
-    // console.log(data.sprites.versions["generation-v"]["black-white"].animated.front_default)
+let input_search = document.getElementById("input_search")
+let btn_next = document.getElementById("btn-next")
+let btn_prev = document.getElementById("btn-prev")
 
-    // console.log(data.name)
-    // console.loh(data.id)
+let searchPokemon = 1
 
-    pokemon_name.innerText = data.name
-    pokemon_number.innerText = data.id
-    pokemon_image.src = data.sprites.versions["generation-v"]["black-white"].animated.front_default
 
+function buscarpokemon(pokemon) {
+  fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+    .then((res) => res.json())
+    .then((data) => {
+      // console.log(data.sprites.versions["generation-v"]["black-white"].animated.front_default)
+
+      // console.log(data.name)
+      // console.loh(data.id)
+
+      pokemon_name.innerText = data.name;
+      pokemon_number.innerText = data.id;
+      pokemon_image.src =
+        data.sprites.versions["generation-v"][
+          "black-white"
+        ].animated.front_default;
+        searchPokemon = data.id
+    })
+
+    .catch((err) => {
+        pokemon_name.innerText = "Não encontrado "
+    })
+}
+
+
+buscar.addEventListener("click", function(event){
+    buscarpokemon(input_search.value)
+    event.preventDefault()
 })
+
+btn_next.addEventListener("click", function(){
+    searchPokemon += 1
+    buscarpokemon(searchPokemon)
+})
+
+btn_prev.addEventListener("click", function(){
+    if(searchPokemon >= 1){
+        searchPokemon -= 1
+    buscarpokemon(searchPokemon)
+    }
+})
+
