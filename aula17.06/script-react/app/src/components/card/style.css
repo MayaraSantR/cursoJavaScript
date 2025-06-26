@@ -1,0 +1,14 @@
+.card{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #000;
+    padding: 20px;
+    transition: 0.5s;
+    }
+    .card p {
+        width: 300px;
+    }
+    
+    .card:hover{
+        transform: scale(1.05);
+    }
