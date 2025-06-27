@@ -1,20 +1,20 @@
-import { useState } from "react";
+// import { useState } from "react";
 import "./App.css";
 
 const App = () => {
 
-  const [buscarCEP, setBuscarCEP] = useState("")
+  // const [buscarCEP, setBuscarCEP] = useState("")
 
-  const buscarCEP = () => {
-    fetch(`https://viacep.com.br/ws/${cep}/json/`)
-      .then((res) => res.json())
-      .then((data) => {
+  // const buscarCEP = () => {
+  //   fetch(`https://viacep.com.br/ws/${cep}/json/`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
         
   
        
-      });
-  }
-  };
+  //     });
+  // }
+  // };
 
   return (
     <div class="container">
@@ -34,5 +34,5 @@ const App = () => {
   </div>
 
   )
-
+}
 export default App;
